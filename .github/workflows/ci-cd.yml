@@ -1,0 +1,64 @@
+name: CI/CD for MShop
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: disara7
+          MYSQL_DATABASE: mshop_db
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    env:
+      DB_HOST: 127.0.0.1
+      DB_USER: root
+      DB_PASS: disara7
+      DB_NAME: mshop_db
+      CI: true
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install Server Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: 📦 Install Client Dependencies
+        working-directory: ./client
+        run: npm install
+
+      - name: 🧪 Run Backend Lint or Tests
+        working-directory: ./server
+        run: |
+          echo "No tests yet" # Replace with: npm test
+
+      - name: 🧱 Build React App
+        working-directory: ./client
+        run: npm run build
+
+      - name: 🚚 Copy React Build to Server
+        run: |
+          cp -r ./client/build ./server/public
+
+      # Optional: deploy step to your server or platform
+      # - name: 🚀 Deploy
+      #   run: |
+      #     echo "Add deploy script here (e.g., rsync, SSH, or platform CLI)"
+
