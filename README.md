@@ -42,3 +42,39 @@ This approach makes development, testing, and deployment simpler for small to me
 
 ```sql
 CREATE DATABASE mshop;
+```
+
+### 2️⃣. Install server-side dependencies:
+```
+cd server
+npm install
+```
+
+### 3️⃣. Run the server:
+
+npm start
+The server will:
+
+Sync your MySQL models.
+
+Start listening on http://localhost:5000.
+
+4️⃣. Install client-side dependencies:
+bash
+Copy
+Edit
+cd ../client
+npm install
+5️⃣. Run the React application:
+bash
+Copy
+Edit
+npm start
+The React UI should now be available at http://localhost:3000.
+
+🔹 Access the Application
+✅ Client (React UI) — http://localhost:3000
+
+✅ API (Node + Express) — http://localhost:5000/api/products
+
+
