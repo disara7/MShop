@@ -70,7 +70,7 @@ npm start
 ```
 The React UI should now be available at http://localhost:3000.
 
-🔹 Access the Application
+## 🔹 Access the Application
 ✅ Client (React UI) — http://localhost:3000
 
 ✅ API (Node + Express) — http://localhost:5000/api/products
