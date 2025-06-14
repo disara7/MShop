@@ -51,25 +51,23 @@ npm install
 ```
 
 ### 3️⃣. Run the server:
-
+```
 npm start
 The server will:
-
+```
 Sync your MySQL models.
 
 Start listening on http://localhost:5000.
 
-4️⃣. Install client-side dependencies:
-bash
-Copy
-Edit
+### 4️⃣. Install client-side dependencies:
+```
 cd ../client
 npm install
-5️⃣. Run the React application:
-bash
-Copy
-Edit
+```
+### 5️⃣. Run the React application:
+```
 npm start
+```
 The React UI should now be available at http://localhost:3000.
 
 🔹 Access the Application
