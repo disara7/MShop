@@ -265,7 +265,7 @@ function App() {
                      alt={p.name}
                      style={{
                        width:'100%',
-                       height:'200px',
+                       height:'350px',
                        objectFit:'cover',
                        borderBottom:'1px solid #eee'
                      }}
